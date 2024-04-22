@@ -5,9 +5,9 @@ import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 const scene = new THREE.Scene();
 //camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 9;
-camera.position.x = 3;
-camera.position.y = -1;
+camera.position.z = 4;
+// camera.position.x = 3;
+camera.position.y = -3;
 camera.rotateZ(0.03)
 camera.rotateX(0.03)
 camera.rotateY(0.3)
@@ -35,7 +35,7 @@ hemiLightHelper.visible = false;
 scene.add(hemiLightHelper);
 
 // Directional light
-const light = new THREE.DirectionalLight(0xffffff, 1);
+const light = new THREE.DirectionalLight(0x1f3e4d, 1);
 light.position.set(0, 1, 1); //default; light shining from top
 light.castShadow = true; // default false
 scene.add(light);
@@ -65,10 +65,10 @@ loader.load("/Fox.glb", function (gltf) {
 	mesh.rotation.z = -1 / 2 * Math.PI;
 	scene.add(mesh);
 
-	window.addEventListener("mousedown", (e) => {
-		mesh.position.x += 0.02;
-		camera.position.x += 0.01;
-	});
+	// window.addEventListener("mousedown", (e) => {
+	// 	mesh.position.x += 0.02;
+	// 	camera.position.x += 0.01;
+	// });
 	const mixer = new THREE.AnimationMixer(mesh);
 	mixer.clipAction(gltf.animations[0]).setDuration(1).play();
 	mixers.push(mixer);
@@ -125,8 +125,8 @@ loader.load("/tree.glb", function (gltf) {
 		.forEach(() => {
 			const newTree = tree.clone();
 			newTree.position.y = -4;
-			newTree.position.z = Math.random() * 60 - 50;
-			newTree.position.x = Math.random() * 100 - 30;
+			newTree.position.z = Math.random() * 50 - 50;
+			newTree.position.x = Math.random() * 200 - 30;
 			newTree.shadow = true;
 			newTree.receiveShadow = true;
 			// newTree.rotation.y = -Math.PI / 2;
