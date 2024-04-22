@@ -57,7 +57,7 @@ scene.add(ground);
 
 let fox;
 // Fox
-loader.load("assets/Fox.glb", function (gltf) {
+loader.load("/Fox.glb", function (gltf) {
 	const mesh = gltf.scene.children[0];
 	mesh.castShadow = true;
 	mesh.position.x = -2;
@@ -99,13 +99,13 @@ const textureLoader = new THREE.TextureLoader();
 const materials = [
 	new THREE.PointsMaterial({
 		size: 0.05,
-		map: textureLoader.load("assets/sp1.png"),
+		map: textureLoader.load("/sp1.png"),
 		transparent: true
 		// color: "#ff0000"
 	}),
 	new THREE.PointsMaterial({
 		size: 0.075,
-		map: textureLoader.load("assets/sp2.png"),
+		map: textureLoader.load("/sp2.png"),
 		transparent: true
 		// color: "#0000ff"
 	})
@@ -117,7 +117,7 @@ scene.add(starsT2);
 
 
 // Tree
-loader.load("assets/tree.glb", function (gltf) {
+loader.load("/tree.glb", function (gltf) {
 	const tree = gltf.scene;
 	tree.scale.set(30, 30, 20);
 	Array(100)
